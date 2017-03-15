@@ -1,12 +1,12 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
-import { Jsonpmodule } from '@angular/http'
+import { JsonpModule } from '@angular/http'
 
 import { AppComponent } from './app.component';
 import { WeatherComponent } from './weather-widget/component/weather.component';
 
 @NgModule({
-    imports: [ BrowserModule, Jsonpmodule ],
+    imports: [ BrowserModule, JsonpModule ],
     declarations: [ AppComponent, WeatherComponent ],
     bootstrap: [ AppComponent ]
 })
