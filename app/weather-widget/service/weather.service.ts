@@ -1,8 +1,16 @@
 import { Injectable } from '@angular/core';
+import { Jsonp } from '@angular/http';
+import { Observable } from 'rxjs/Observable';
+import 'rxjs/add/operator/map';
+import 'rxjs/add/operator/catch';
 
 @Injectable()
 
 export class WeatherService {
+    constructor(private jsonp: Jsonp) {
+
+    }
+
     getCurrentLocation(): [number, number] {
         if(navigator.geolocation) {
             navigator.geolocation.getCurrentPosition(pos => {
@@ -15,4 +23,8 @@ export class WeatherService {
             return [0,0];
         }
     } 
+
+    getCurrentWeather(lat: number, long: number): Observable<any> {
+        
+    }
 }
