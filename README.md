@@ -7,3 +7,6 @@ Weather application using Angular 2
 ```
 npm start
 ```
+
+## Directions
+
