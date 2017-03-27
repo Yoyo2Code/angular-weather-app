@@ -36,7 +36,7 @@ export class WeatherComponent implements OnInit {
             .subscribe(weather => {
                 this.weatherData.temp = weather["currently"]["temperature"],
                 this.weatherData.summary = weather["currently"]["summary"],
-                this.weatherData.wind = weather["currently"]["windspeed"],
+                this.weatherData.wind = weather["currently"]["windSpeed"],
                 this.weatherData.humidity = weather["currently"]["humidity"],
                 this.weatherData.icon = weather["currently"]["icon"]
                 console.log("Weather: ", this.weatherData); // TODO: REMOVE
