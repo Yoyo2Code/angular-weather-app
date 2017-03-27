@@ -19,13 +19,13 @@ export class WeatherComponent implements OnInit {
     constructor(private service: WeatherService) { }
 
     ngOnInit() {
-        this.getCurrentWeather();
+        this.getCurrentLocation();
     }
 
     getCurrentLocation() {
         this.service.getCurrentLocation()
             .subscribe(position => {
-                this.pos = position;
+                this.pos = position
                 this.getCurrentWeather()
             },
             err => console.log(err));
@@ -33,7 +33,14 @@ export class WeatherComponent implements OnInit {
 
     getCurrentWeather() {
         this.service.getCurrentWeather(this.pos.coords.latitude,this.pos.coords.longitude)
-            .subscribe(weather => console.log(weather),
+            .subscribe(weather => {
+                this.weatherData.temp = weather["currently"]["temperature"],
+                this.weatherData.summary = weather["currently"]["summary"],
+                this.weatherData.wind = weather["currently"]["windspeed"],
+                this.weatherData.humidity = weather["currently"]["humidity"],
+                this.weatherData.icon = weather["currently"]["icon"]
+                console.log("Weather: ", this.weatherData); // TODO: REMOVE
+        },
             err => console.error(err));
     }
 }
